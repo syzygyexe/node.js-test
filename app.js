@@ -114,6 +114,21 @@ var fs = require("fs");
 // server.listen(3000, "127.0.0.1");
 // console.log("yo dawgs, now listening to port 3000");
 
-var http = require("http");
-var fs = require("fs");
+// var http = require("http");
+// var fs = require("fs");
+
+var express = require("express");
+var app = express();
+
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.get("/contact", function (req, res) {
+  res.sendFile(__dirname + "/contact.html");
+});
+
+app.get("/profile/name:", function (req, res) {
+  res.send("You are vievwing the profile of " + req.params.name);
+});
 
